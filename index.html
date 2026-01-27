@@ -935,6 +935,24 @@
   padding: 0 40px; /* Espaço para as setas */
 }
 
+#carousel, #storyCarousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Faz o snap/imã */
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Esconde barra no Firefox */
+}
+
+#carousel::-webkit-scrollbar, #storyCarousel::-webkit-scrollbar {
+    display: none; /* Esconde barra no Chrome/Safari */
+}
+
+/* Aplica o snap em cada card filho */
+#carousel > *, #storyCarousel > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
 .testimonials-carousel {
   display: flex;
   gap: 1.5rem;
@@ -2289,109 +2307,118 @@
   </a>
 
   <script>
-    // Header scroll effect
+    // 1. Efeito de Scroll no Header
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
 
-    // Mobile menu
+    // 2. Menu Mobile
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
+        const menu = document.getElementById('mobileMenu');
+        if (menu) menu.classList.toggle('active');
     }
 
     function closeMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.remove('active');
+        const menu = document.getElementById('mobileMenu');
+        if (menu) menu.classList.remove('active');
     }
 
-    // Carousel scroll
+    // 3. Lógica do Carrossel (Ajustada para não bugar)
+    // Esta função calcula dinamicamente o tamanho do card + o espaço entre eles
+    function genericScroll(elementId, direction) {
+        const container = document.getElementById(elementId);
+        if (!container) return;
+
+        const firstCard = container.querySelector(':scope > *'); // Pega o primeiro item dentro do carrossel
+        if (!firstCard) return;
+
+        // Calcula a largura do card + o gap (espaçamento) definido no CSS
+        const cardWidth = firstCard.offsetWidth;
+        const style = window.getComputedStyle(container);
+        const gap = parseInt(style.columnGap) || parseInt(style.gap) || 0;
+        
+        // Define a distância do scroll (1 card por vez para maior precisão)
+        const scrollAmount = cardWidth + gap;
+
+        container.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+
+    // Funções chamadas pelos botões HTML
     function scrollCarousel(direction) {
-  const carousel = document.getElementById('carousel');
-  const scrollAmount = carousel.offsetWidth; // Rola a largura visível do container
-  carousel.scrollBy({
-    left: direction * scrollAmount,
-    behavior: 'smooth'
-  });
-}
-
-    // Story Carousel scroll
-    function scrollStoryCarousel(direction) {
-      const carousel = document.getElementById('storyCarousel');
-      const cardWidth = 280; // Width of each card
-      const gap = 24; // Gap between cards (1.5rem = 24px)
-      const scrollAmount = (cardWidth + gap) * 2; // Scroll 2 cards at a time
-      
-      carousel.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-      });
+        genericScroll('carousel', direction);
     }
 
-    // Optional: Auto-scroll story carousel
+    function scrollStoryCarousel(direction) {
+        genericScroll('storyCarousel', direction);
+    }
+
+    // 4. Auto-scroll opcional (Melhorado para usar a nova lógica)
     let storyAutoScroll;
     const storyCarousel = document.getElementById('storyCarousel');
-    
+
     function startStoryAutoScroll() {
-      storyAutoScroll = setInterval(() => {
-        const maxScroll = storyCarousel.scrollWidth - storyCarousel.clientWidth;
-        if (storyCarousel.scrollLeft >= maxScroll) {
-          storyCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          scrollStoryCarousel(1);
-        }
-      }, 5000); // Auto-scroll every 5 seconds
+        stopStoryAutoScroll(); // Limpa antes de iniciar para evitar múltiplos intervalos
+        storyAutoScroll = setInterval(() => {
+            const maxScroll = storyCarousel.scrollWidth - storyCarousel.clientWidth;
+            // Se chegou no fim, volta ao início, senão, avança
+            if (storyCarousel.scrollLeft >= maxScroll - 10) {
+                storyCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scrollStoryCarousel(1);
+            }
+        }, 5000);
     }
 
     function stopStoryAutoScroll() {
-      clearInterval(storyAutoScroll);
+        clearInterval(storyAutoScroll);
     }
 
-    // Start auto-scroll on page load
-    // startStoryAutoScroll(); // Uncomment to enable auto-scroll
+    // Ative as linhas abaixo se desejar o auto-scroll ligado por padrão
+    // if (storyCarousel) {
+    //     startStoryAutoScroll();
+    //     storyCarousel.addEventListener('mouseenter', stopStoryAutoScroll);
+    //     storyCarousel.addEventListener('mouseleave', startStoryAutoScroll);
+    // }
 
-    // Pause auto-scroll on hover
-    if (storyCarousel) {
-      storyCarousel.addEventListener('mouseenter', stopStoryAutoScroll);
-      storyCarousel.addEventListener('mouseleave', () => {
-        // startStoryAutoScroll(); // Uncomment to re-enable auto-scroll after hover
-      });
-    }
-
-    // FAQ accordion
+    // 5. FAQ Accordion
     function toggleFaq(button) {
-      const item = button.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(faq => {
-        faq.classList.remove('active');
-      });
-      
-      // Open clicked if it wasn't active
-      if (!isActive) {
-        item.classList.add('active');
-      }
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Fecha todos os outros
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            faq.classList.remove('active');
+        });
+        
+        // Abre o atual se não estava ativo
+        if (!isActive) {
+            item.classList.add('active');
+        }
     }
 
-    // Smooth scroll for anchor links
+    // 6. Smooth scroll para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-  </script>
+</script>
 </body>
 </html>

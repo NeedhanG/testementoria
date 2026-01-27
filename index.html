@@ -449,103 +449,225 @@
       }
     }
 
-    /* Hero Section AJUSTADA */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 5rem; /* Espaço para o header */
-}
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: var(--background);
-}
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--background);
+    }
 
-/* Glows permanecem iguais */
-.hero-glow-1 { position: absolute; top: 0; left: 25%; width: 24rem; height: 24rem; background: rgba(107, 66, 182, 0.2); border-radius: 50%; filter: blur(128px); }
-.hero-glow-2 { position: absolute; bottom: 0; right: 25%; width: 24rem; height: 24rem; background: rgba(79, 134, 200, 0.2); border-radius: 50%; filter: blur(128px); }
-.hero-glow-3 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: linear-gradient(135deg, rgba(107, 66, 182, 0.1), rgba(79, 134, 200, 0.1)); border-radius: 50%; filter: blur(100px); }
+    .hero-glow-1 {
+      position: absolute;
+      top: 0;
+      left: 25%;
+      width: 24rem;
+      height: 24rem;
+      background: rgba(107, 66, 182, 0.2);
+      border-radius: 50%;
+      filter: blur(128px);
+    }
 
-.hero-content {
-  position: relative;
-  z-index: 10;
-  /* AJUSTE: Adicionado 1.5rem (24px) de padding lateral para não colar na borda no mobile */
-  padding: 3rem 1.5rem; 
-  width: 100%;
-}
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 0;
+      right: 25%;
+      width: 24rem;
+      height: 24rem;
+      background: rgba(79, 134, 200, 0.2);
+      border-radius: 50%;
+      filter: blur(128px);
+    }
 
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem; /* Diminuído levemente o gap para mobile */
-  align-items: center;
-}
+    .hero-glow-3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(135deg, rgba(107, 66, 182, 0.1), rgba(79, 134, 200, 0.1));
+      border-radius: 50%;
+      filter: blur(100px);
+    }
 
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Espaçamento entre os elementos do texto */
-}
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 5rem 0;
+    }
 
-/* Controle de Ordem no Mobile */
-.hero-text h1 { order: 1; font-size: 2.2rem; font-weight: 700; line-height: 1.2; }
-.hero-description { order: 2; font-size: 1rem; color: rgba(255, 255, 255, 0.7); max-width: 36rem; line-height: 1.6; }
-.hero-video { order: 3; width: 100%; }
-.hero-buttons { order: 4; display: flex; flex-direction: column; gap: 1rem; width: 100%; }
-.hero-social { order: 5; display: flex; align-items: center; gap: 1rem; padding-top: 0.5rem; flex-wrap: wrap; }
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
 
-/* Botões em largura total no mobile para facilitar o clique */
-.hero-buttons .btn {
-  width: 100%;
-}
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .hero-text h1 {
+      order: 1;
+    }
+    
+    .hero-description {
+      order: 2;
+    }
+    
+    .hero-video {
+      order: 3;
+      width: 100%;
+    }
+    
+    .hero-buttons {
+      order: 4;
+    }
+    
+    .hero-social {
+      order: 5;
+    }
 
-.avatars { display: flex; }
-.avatar {
-  width: 2.5rem; height: 2.5rem; border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border: 2px solid black; display: flex; align-items: center;
-  justify-content: center; font-size: 0.75rem; font-weight: 700; margin-left: -0.75rem;
-}
-.avatar:first-child { margin-left: 0; }
-.social-text { color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; }
-.social-text strong { color: white; }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
 
-/* Video Wrapper */
-.video-wrapper {
-  position: relative; border-radius: 1rem; overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(107, 66, 182, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.video-glow { position: absolute; inset: -4px; background: linear-gradient(to right, var(--primary), var(--secondary)); border-radius: 1rem; filter: blur(20px); opacity: 0.3; }
-.video-container { position: relative; aspect-ratio: 16/9; background: rgba(0, 0, 0, 0.5); border-radius: 1rem; overflow: hidden; }
-.video-container iframe { width: 100%; height: 100%; border: none; }
+    .hero-description {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 36rem;
+      line-height: 1.7;
+    }
 
-/* Desktop - Tablet (A partir de 768px) */
-@media (min-width: 768px) {
-  .hero-content { padding: 5rem 0; } /* Remove o padding extra no desktop se o container já cuidar disso */
-  .hero-text h1 { font-size: 3rem; }
-  .hero-buttons { flex-direction: row; width: auto; }
-  .hero-buttons .btn { width: auto; }
-}
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
-/* Desktop Large (A partir de 1024px) */
-@media (min-width: 1024px) {
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    text-align: left;
-    align-items: center;
-  }
-  .hero-text h1 { font-size: 3.75rem; }
-  .hero-text h1, .hero-description, .hero-video, .hero-buttons, .hero-social {
-    order: unset;
-  }
-}
+    .hero-social {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 1rem;
+    }
+
+    .avatars {
+      display: flex;
+    }
+
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: -0.75rem;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    .social-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+
+    .social-text strong {
+      color: white;
+    }
+
+    .hero-video {
+      position: relative;
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(107, 66, 182, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-glow {
+      position: absolute;
+      inset: -4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 1rem;
+      filter: blur(20px);
+      opacity: 0.3;
+    }
+
+    .video-container {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-bottom-glow {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      height: 2rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      filter: blur(24px);
+      opacity: 0.5;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero-buttons {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero h1 {
+        font-size: 3.75rem;
+      }
+      .hero-text h1,
+      .hero-description,
+      .hero-video,
+      .hero-buttons,
+      .hero-social {
+        order: unset;
+      }
+    }
 
     /* Section Base */
     .section {
@@ -2310,76 +2432,70 @@
       menu.classList.remove('active');
     }
 
-    // --- CARROSSEL DE DEPOIMENTOS (INFINITO) ---
+    // Carousel scroll
     function scrollCarousel(direction) {
-      const carousel = document.getElementById('carousel');
-      const scrollAmount = carousel.offsetWidth;
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  const carousel = document.getElementById('carousel');
+  const scrollAmount = carousel.offsetWidth; // Rola a largura visível do container
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
 
-      if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
-        // Se estiver no fim e clicar em "próximo", volta ao início
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else if (direction === -1 && carousel.scrollLeft <= 10) {
-        // Se estiver no início e clicar em "anterior", vai ao fim
-        carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-      }
-    }
-
-    // --- CARROSSEL "O QUE VOCÊ VAI DOMINAR" (INFINITO) ---
+    // Story Carousel scroll
     function scrollStoryCarousel(direction) {
       const carousel = document.getElementById('storyCarousel');
-      const cardWidth = 280; 
-      const gap = 24; 
-      const scrollAmount = (cardWidth + gap) * 1; // Ajustado para 1 card por vez para maior suavidade
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
-      if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else if (direction === -1 && carousel.scrollLeft <= 10) {
-        carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-      }
+      const cardWidth = 280; // Width of each card
+      const gap = 24; // Gap between cards (1.5rem = 24px)
+      const scrollAmount = (cardWidth + gap) * 2; // Scroll 2 cards at a time
+      
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
     }
 
-    // --- AUTO-SCROLL CONFIGURADO ---
+    // Optional: Auto-scroll story carousel
     let storyAutoScroll;
     const storyCarousel = document.getElementById('storyCarousel');
-    const testimonialsCarousel = document.getElementById('carousel');
-
-    function startAutoScroll() {
+    
+    function startStoryAutoScroll() {
       storyAutoScroll = setInterval(() => {
-        scrollStoryCarousel(1); // Rola o de Dominar
-        scrollCarousel(1);      // Rola o de Depoimentos
-      }, 5000); // 5 segundos
+        const maxScroll = storyCarousel.scrollWidth - storyCarousel.clientWidth;
+        if (storyCarousel.scrollLeft >= maxScroll) {
+          storyCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollStoryCarousel(1);
+        }
+      }, 5000); // Auto-scroll every 5 seconds
     }
 
-    function stopAutoScroll() {
+    function stopStoryAutoScroll() {
       clearInterval(storyAutoScroll);
     }
 
-    // Inicia o auto-scroll ao carregar a página
-    startAutoScroll();
+    // Start auto-scroll on page load
+    // startStoryAutoScroll(); // Uncomment to enable auto-scroll
 
-    // Pausa o auto-scroll quando o mouse estiver sobre qualquer um dos carrosséis
-    [storyCarousel, testimonialsCarousel].forEach(carousel => {
-      if (carousel) {
-        carousel.addEventListener('mouseenter', stopAutoScroll);
-        carousel.addEventListener('mouseleave', startAutoScroll);
-      }
-    });
+    // Pause auto-scroll on hover
+    if (storyCarousel) {
+      storyCarousel.addEventListener('mouseenter', stopStoryAutoScroll);
+      storyCarousel.addEventListener('mouseleave', () => {
+        // startStoryAutoScroll(); // Uncomment to re-enable auto-scroll after hover
+      });
+    }
 
     // FAQ accordion
     function toggleFaq(button) {
       const item = button.parentElement;
       const isActive = item.classList.contains('active');
       
+      // Close all
       document.querySelectorAll('.faq-item').forEach(faq => {
         faq.classList.remove('active');
       });
       
+      // Open clicked if it wasn't active
       if (!isActive) {
         item.classList.add('active');
       }
@@ -2398,6 +2514,6 @@
         }
       });
     });
-</script>
+  </script>
 </body>
 </html>

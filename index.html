@@ -278,22 +278,26 @@
 .payment-icon.pix-box {
   width: 45px; 
   height: 38px;
-  /* Borda padrão como a dos outros ícones */
-  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* Permite que a imagem "saia" um pouco do box se necessário */
 }
 
-/* Imagem do PIX - Aumentada ao máximo dentro do card */
+/* Imagem do PIX - FORÇANDO TAMANHO GRANDE */
 .payment-icon.pix-box .payment-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain;
-  /* Padding 0 faz a imagem encostar nas bordas e parecer maior */
-  padding: 0px !important; 
-  display: block;
+  padding: 0px !important;
   
-  /* REMOVIDO: Filtros de cor e brilho para manter a cor original */
+  /* O segredo está aqui: Aumenta a escala da imagem */
+  transform: scale(1.5) !important; 
+  
   filter: none !important;
   opacity: 1 !important;
+  display: block;
 }
 
   .badge {

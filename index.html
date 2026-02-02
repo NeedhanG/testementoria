@@ -24,8 +24,6 @@
       --muted: #a1a1a1;
       --border: #2a2a2a;
       --card: #0a0a0a;
-      --whatsapp-green: #25D366;
-      --whatsapp-dark: #005c4b;
     }
 
     html {
@@ -90,30 +88,22 @@
       box-shadow: 0 0 30px rgba(107, 66, 182, 0.5);
     }
 
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
 
     .btn-lg {
       padding: 1rem 2rem;
       font-size: 1.125rem;
-    }
-
-    .btn-secondary {
-      background: var(--secondary);
-      color: white;
-    }
-
-  .btn-secondary:hover {
-    opacity: 0.9;
     transform: scale(1.02);
   }
+  .btn-secondary {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(107, 66, 182, 0.5);
+}
 
   /* Water Ripple Pulsating Effect - AJUSTADO E SUAVE */
   .btn-ripple {
@@ -175,16 +165,6 @@
         0 6px 20px rgba(0, 0, 0, 0.5);
       transform: scale(1.02);
     }
-  }
-
-  /* Enhanced price styling */
-  .price-box {
-    position: relative;
-    padding: 2rem;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, rgba(107, 66, 182, 0.1), rgba(79, 134, 200, 0.1));
-    border: 1px solid rgba(107, 66, 182, 0.3);
-    backdrop-filter: blur(10px);
   }
 
   .price-current {
@@ -287,30 +267,6 @@
     opacity: 0.8;
   }
 
-  .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      background: rgba(107, 66, 182, 0.2);
-      border: 1px solid rgba(107, 66, 182, 0.3);
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .badge-blue {
-      background: rgba(79, 134, 200, 0.2);
-      border-color: rgba(79, 134, 200, 0.3);
-    }
-
-    .badge-dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: var(--primary);
-      animation: pulse 2s infinite;
-    }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -494,7 +450,6 @@
 /* Controle de Ordem no Mobile */
 .hero-text h1 { order: 1; font-size: 2.2rem; font-weight: 700; line-height: 1.2; }
 .hero-description { order: 2; font-size: 1rem; color: rgba(255, 255, 255, 0.7); max-width: 36rem; line-height: 1.6; }
-.hero-video { order: 3; width: 100%; }
 .hero-buttons { order: 4; display: flex; flex-direction: column; gap: 1rem; width: 100%; }
 .hero-social { order: 5; display: flex; align-items: center; gap: 1rem; padding-top: 0.5rem; flex-wrap: wrap; }
 
@@ -514,15 +469,6 @@
 .social-text { color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; }
 .social-text strong { color: white; }
 
-/* Video Wrapper */
-.video-wrapper {
-  position: relative; border-radius: 1rem; overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(107, 66, 182, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.video-glow { position: absolute; inset: -4px; background: linear-gradient(to right, var(--primary), var(--secondary)); border-radius: 1rem; filter: blur(20px); opacity: 0.3; }
-.video-container { position: relative; aspect-ratio: 16/9; background: rgba(0, 0, 0, 0.5); border-radius: 1rem; overflow: hidden; }
-.video-container iframe { width: 100%; height: 100%; border: none; }
 
 /* Desktop - Tablet (A partir de 768px) */
 @media (min-width: 768px) {
@@ -542,7 +488,7 @@
     align-items: center;
   }
   .hero-text h1 { font-size: 3.75rem; }
-  .hero-text h1, .hero-description, .hero-video, .hero-buttons, .hero-social {
+  .hero-text h1, .hero-description, .hero-buttons, .hero-social {
     order: unset;
   }
 }
@@ -753,179 +699,6 @@
   }
 }
 
-    /* Ace Pack Section */
-    .product-card {
-      max-width: 56rem;
-      margin: 0 auto;
-      position: relative;
-      border-radius: 1.5rem;
-      overflow: hidden;
-    }
-
-    .product-border {
-      position: absolute;
-      inset: -1px;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      border-radius: 1.5rem;
-    }
-
-    .product-inner {
-      position: relative;
-      background: rgba(0, 0, 0, 0.9);
-      border-radius: 1.5rem;
-      padding: 2rem;
-    }
-
-  .product-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  }
-
-    .stars {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .stars svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      fill: var(--primary);
-      color: var(--primary);
-    }
-
-    .stars span {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.875rem;
-      margin-left: 0.5rem;
-    }
-
-    .benefits-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .benefits-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .check-icon {
-      width: 1.25rem;
-      height: 1.25rem;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 0.125rem;
-    }
-
-    .check-icon svg {
-      width: 0.75rem;
-      height: 0.75rem;
-      color: white;
-    }
-
-    .benefits-list span {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-  .price-box {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1.5rem;
-  padding: 3rem 4rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  }
-
-    .price-label {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.875rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .price-old {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 1.25rem;
-      text-decoration: line-through;
-      margin-bottom: 0.5rem;
-    }
-
-    .price-current {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .price-current small {
-      font-size: 1.60rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .price-installment {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .price-box .btn {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .guarantee {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.75rem;
-    }
-
-    .guarantee svg {
-      width: 1rem;
-      height: 1rem;
-    }
-
-  @media (max-width: 767px) {
-  .price-box {
-    padding: 2rem;
-    max-width: 100%;
-  }
-  .price-current {
-    font-size: 3rem !important;
-  }
-  .mentoria-price {
-    padding: 2rem;
-    max-width: 100%;
-  }
-  .mentoria-price .price-current {
-    font-size: 3rem !important;
-  }
-  }
-
-  @media (min-width: 768px) {
-  .product-inner {
-  padding: 3rem;
-  }
-  .product-grid {
-  justify-content: center;
-  }
-  .price-box {
-  text-align: center;
-  }
-  }
 
    /* Container do Carrossel */
 .carousel-wrapper {
@@ -1657,6 +1430,109 @@
       height: 28px;
     }
   }
+  /* Ajustes para Celular (Mobile) */
+@media (max-width: 768px) {
+  /* 1. Ajusta o padding do card para o conteúdo ter mais espaço lateral */
+  .mentoria-price {
+    padding: 2rem 1.5rem !important;
+    width: 95% !important;
+    max-width: none !important;
+  }
+
+  /* 2. Reduz o tamanho do preço para não cortar nas bordas */
+  .price-current {
+    font-size: 2.8rem !important; /* Diminuído para caber na tela */
+    margin: 1rem 0 !important;
+  }
+
+  /* 3. Ajusta o botão para o texto ficar em uma linha só */
+  .btn-lg {
+    padding: 0.8rem 1rem !important;
+    font-size: 0.95rem !important; /* Texto levemente menor */
+    white-space: nowrap !important; /* Impede que o texto quebre em 2 linhas */
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Ajusta o ícone dentro do botão no mobile */
+  .btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  /* Reduz os ícones de pagamento para caberem melhor */
+  .payment-methods {
+    gap: 0.4rem !important;
+  }
+  
+  .payment-icon {
+    width: 38px !important;
+    height: 32px !important;
+  }
+}
+/* Ajuste para centavos pequenos alinhados por baixo */
+.price-current small {
+    font-size: 0.5em !important;    /* Tamanho fixo e visível */
+    vertical-align: baseline !important; /* Alinha na parte de baixo do número */
+    margin-left: 2px;
+    opacity: 1 !important;          /* Garante visibilidade total */
+    font-weight: 700;               /* Deixa um pouco mais grosso para destacar */
+    display: inline-block;          /* Garante que o alinhamento funcione bem */
+}
+
+  @media (max-width: 768px) {
+  /* Ajuste para deixar o texto bem compacto como na imagem de referência */
+  .hero-text h1,
+  .section-header h2,
+  .about-text h2,
+  .final-cta h2 {
+    line-height: 1.0 !important; /* Isso remove o espaço extra entre as linhas */
+    letter-spacing: -0.02em;     /* Opcional: deixa as letras um pouco mais juntas para um visual mais premium */
+  }
+}
+/* Ajuste de espaçamento para as seções e subtítulos no Desktop */
+@media (min-width: 768px) {
+  /* 1. Reduz o espaço geral entre uma seção e outra */
+  .section {
+    padding: 3rem 0 !important; /* Estava em 6rem, reduzimos pela metade */
+  }
+/* Ajuste do Título Principal (Hero) e Descrição no Desktop */
+@media (min-width: 768px) {
+  .hero-text {
+    gap: 0.8rem !important; /* Reduz o espaço entre o título e o parágrafo abaixo */
+  }
+
+  .hero-text h1 {
+    line-height: 1.0 !important; /* Deixa as linhas do título coladas */
+    margin-bottom: 0 !important;
+  }
+
+  .hero-description {
+    line-height: 1.4 !important; /* Melhora a leitura do texto menor */
+    margin-top: 0 !important;
+  }
+}
+  /* 2. Reduz o espaço entre o bloco de título e o conteúdo abaixo dele */
+  .section-header {
+    margin-bottom: 2.5rem !important; /* Estava em 4rem */
+  }
+
+  /* 3. Aproxima o título principal (H2) do subtítulo que vem logo abaixo */
+  .section-header h2 {
+    margin-bottom: 0.5rem !important; /* Estava em 1.5rem */
+    line-height: 1.1 !important;      /* Mantém o texto "coladinho" se quebrar linha */
+  }
+
+  /* 4. Ajuste específico para a seção de fechamento (Pronto para transformar...) */
+  .final-cta {
+    padding: 2rem 0 !important;
+  }
+  
+  .final-cta h2 {
+    margin-bottom: 0.5rem !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -1666,14 +1542,13 @@
     <div class="container">
       <div class="header-inner">
        <a href="#" class="logo">
-  <img src="assets/logo.png" alt="Ace Pack Logo" style="height: 75px; width: auto;">
-</a>
+ <!-- <img src="assets/logo.png" alt="Ace Pack Logo" style="height: 75px; width: auto;">
+</a> -->  
 
         <nav class="nav">
+          <a href="#mentoria">Mentoria<
           <a href="#sobre">Sobre</a>
-          <a href="#ace-pack">Ace Pack</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#mentoria">Mentoria</a>
+          <a href="#depoimentos">Depoimentos</a>/a>
           <a href="#faq">FAQ</a>
         </nav>
 
@@ -1682,10 +1557,9 @@
         </button>
 
         <div class="mobile-menu" id="mobileMenu">
-          <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
-          <a href="#ace-pack" onclick="closeMobileMenu()">Ace Pack</a>
-          <a href="#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
           <a href="#mentoria" onclick="closeMobileMenu()">Mentoria</a>
+          <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+          <a href="#depoimentos" onclick="closeMobileMenu()">Depoimentos</a>
           <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
         </div>
       </div>
@@ -1706,7 +1580,7 @@
           
 
           <h1>
-            Transforme Seus <span class="text-gradient">Resultados</span> Com o Ace Pack
+            Transforme seus <span class="text-gradient">resultados</span> com o Ace Pack
           </h1>
 
           <p class="hero-description">
@@ -1736,354 +1610,11 @@
           </div>
         </div>
 
-        <div class="hero-video">
-          <div class="video-wrapper">
-            <div class="video-glow"></div>
-            <div class="video-container">
-              <iframe 
-                src="https://www.youtube.com/embed/JPAUU-kdVUE?si=obnJALAO3u5pJWQ-" 
-                title="Video de Apresentacao" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-          <div class="video-bottom-glow"></div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Story Cards Carousel Section -->
-  <section class="story-cards-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>O Que Você Vai <span class="text-gradient">Dominar</span></h2>
-        <p class="subtitle">Arraste para explorar todos os recursos exclusivos do Ace Pack</p>
-      </div>
-
-      <div class="story-carousel-container">
-        <button class="story-nav-btn prev" onclick="scrollStoryCarousel(-1)" aria-label="Anterior">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        
-       <div class="story-carousel" id="storyCarousel">
-  <!-- Card 1 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story1.png" alt="Resultados">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Resultado Profissional</h3>
-        <p class="story-card-description">
-          Estrutura completa para sair do zero e editar com padrão profissional
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story2.png" alt="Adobe Premiere">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Mini Curso Premiere Pro</h3>
-        <p class="story-card-description">
-          Aulas práticas do zero ao essencial focadas em edição rápida e profissional
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story3.png" alt="After Effects">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Aulas de After Effects</h3>
-        <p class="story-card-description">
-          Efeitos, transições e motion graphics usados em vídeos que viralizam
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story4.jpeg" alt="Sound Effects">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">+1.500 Efeitos Sonoros</h3>
-        <p class="story-card-description">
-          Biblioteca organizada pronta para usar em qualquer tipo de vídeo
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story5.png" alt="Visual Elements">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Elementos Visuais Premium</h3>
-        <p class="story-card-description">
-          100+ elementos visuais, 50 backgrounds animados e overlays profissionais
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story6.JPG" alt="Workflow">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Presets & Workflow</h3>
-        <p class="story-card-description">
-          Presets, checklist pré-edição e briefing estratégico para agilizar projetos
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 7 -->
-  <div class="story-card">
-    <div class="story-card-image">
-      <img src="assets/story7.png" alt="Lifetime Access">
-      <div class="story-card-overlay">
-        <h3 class="story-card-title">Acesso Vitalício</h3>
-        <p class="story-card-description">
-          Acesso para sempre + atualizações gratuitas sem custo adicional
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        <button class="story-nav-btn next" onclick="scrollStoryCarousel(1)" aria-label="Próximo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
- <!-- Sobre Nós Section -->
-  <section class="section" id="sobre-nos">
-    <div class="section-bg">
-      <div class="glow-center" style="opacity: 0.3;"></div>
-    </div>
-
-    <div class="container section-content">
-      <div class="about-grid">
-        <!-- Lado da Imagem -->
-        <div class="about-image">
-          <img src="assets/murilo.JPG" alt="Quem somos nós - Ace Pack">
-        </div>
-
-        <!-- Lado do Texto -->
-        <div class="about-text">
-          <h2>A Mente por trás do <span class="text-gradient">Ace Pack</span></h2>
-          
-         
-          <span class="about-name">Murilo Gonçalves</span> 
-          
-          <p>
-            Comecei a editar vídeos aos 9 anos, mas por falta de orientação e posicionamento eu não conseguia transmitir segurança, nem cobrar o que valia. Via outros avançando enquanto eu continuava perdido. Só quando ajustei minha mentalidade, organização e entrega passei a ser visto como profissional: vieram clientes melhores, projetos maiores e oportunidades que mudaram minha vida.
-          </p>
-          
-          <p>
-            Hoje, após atingir seis dígitos no audiovisual, criei meu curso para ensinar exatamente o que eu gostaria de ter aprendido quando comecei — de forma simples, prática e transformadora.
-          </p>
-
-         <a href="https://www.instagram.com/murilofilmsbr" target="_blank" rel="noopener noreferrer" class="btn-instagram-sobre">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-  Acompanhe no Instagram
-</a>
-
-          <div class="about-stats">
-            <div class="stat-item">
-              <h4>4+ Anos</h4>
-              <span>De Experiência</span>
-            </div>
-            <div class="stat-item">
-              <h4>1.7k+</h4>
-              <span>Alunos Felizes</span>
-            </div>
-            <div class="stat-item">
-              <h4>24/7</h4>
-              <span>Suporte Ativo</span>
-            </div>
-            <div class="stat-item">
-              <h4>100%</h4>
-              <span>Método Prático</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ace Pack Section -->
-<section class="section" id="ace-pack">
-  <div>
-    <div class="section-bg"></div>
-    <div class="hero-glow-1" style="top: 0; right: 25%; left: auto;"></div>
-    <div class="hero-glow-2" style="bottom: 0; left: 25%; right: auto;"></div>
-  </div>
-
-  <div class="container section-content">
-    <div class="section-header">
-      <h2>ACE Pack <span class="text-gradient">Completo</span></h2>
-      <p>O pacote definitivo para quem quer resultados reais e duradouros. Tudo o que você precisa em um só lugar.</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-border"></div>
-      <div class="product-inner">
-        <div class="product-grid">
-          <div class="price-box">
-            <p class="price-label">PAGAMENTO ÚNICO DE R$29,90!</p>
-            <p class="price-current">R$29,<small>90</small></p>
-            <p class="price-installment">ou 6x de R$5,83 no cartão</p>
-            
-            <div class="payment-methods">
-              <div class="payment-icon" title="PIX">
-                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M256 31.8501C246.331 31.8501 237.059 35.6923 230.224 42.5273L42.5273 230.224C28.3283 244.423 28.3283 267.577 42.5273 281.776L230.224 469.473C237.059 476.308 246.331 480.15 256 480.15C265.669 480.15 274.941 476.308 281.776 469.473L469.473 281.776C483.672 267.577 483.672 244.423 469.473 230.224L281.776 42.5273C274.941 35.6923 265.669 31.8501 256 31.8501ZM256 81.6521L430.348 256L256 430.348L81.6521 256L256 81.6521ZM177.514 177.514C173.045 177.514 168.577 179.22 165.166 182.631C158.344 189.453 158.344 200.504 165.166 207.326L213.841 256L165.166 304.674C158.344 311.496 158.344 322.547 165.166 329.369C171.988 336.191 183.039 336.191 189.861 329.369L256 263.23L322.139 329.369C328.961 336.191 340.012 336.191 346.834 329.369C353.656 322.547 353.656 311.496 346.834 304.674L298.159 256L346.834 207.326C353.656 200.504 353.656 189.453 346.834 182.631C340.012 179.22 335.544 177.514 331.074 177.514C326.605 177.514 322.137 179.22 318.726 182.631L256 248.77L193.274 182.631C189.863 179.22 185.395 177.514 180.926 177.514H177.514Z" fill="white"/>
-              </svg>
-            </div>
-              <div class="payment-icon" title="Boleto">
-                <svg viewBox="0 0 48 32" fill="white">
-                  <rect x="2" y="6" width="2" height="20"/>
-                  <rect x="6" y="6" width="3" height="20"/>
-                  <rect x="11" y="6" width="2" height="20"/>
-                  <rect x="15" y="6" width="4" height="20"/>
-                  <rect x="21" y="6" width="2" height="20"/>
-                  <rect x="25" y="6" width="3" height="20"/>
-                  <rect x="30" y="6" width="2" height="20"/>
-                  <rect x="34" y="6" width="4" height="20"/>
-                  <rect x="40" y="6" width="2" height="20"/>
-                  <rect x="44" y="6" width="2" height="20"/>
-                </svg>
-              </div>
-              <div class="payment-icon" title="Visa">
-                <svg viewBox="0 0 48 32" fill="white">
-                  <text x="24" y="22" font-size="18" font-weight="bold" text-anchor="middle" fill="white">VISA</text>
-                </svg>
-              </div>
-              <div class="payment-icon" title="Mastercard">
-                <svg viewBox="0 0 48 32" fill="none">
-                  <circle cx="18" cy="16" r="10" fill="#EB001B" opacity="0.8"/>
-                  <circle cx="30" cy="16" r="10" fill="#F79E1B" opacity="0.8"/>
-                </svg>
-              </div>
-              <div class="payment-icon" title="American Express">
-                <svg viewBox="0 0 48 32" fill="white">
-                  <text x="24" y="20" font-size="14" font-weight="bold" text-anchor="middle" fill="white">AMEX</text>
-                </svg>
-              </div>
-              <div class="payment-icon" title="PayPal">
-                <svg viewBox="0 0 48 32" fill="white">
-                  <text x="24" y="20" font-size="12" font-weight="bold" text-anchor="middle" fill="white">PayPal</text>
-                </svg>
-              </div>
-              <div class="payment-icon" title="Google Pay">
-                <svg viewBox="0 0 48 32" fill="white">
-                  <text x="24" y="20" font-size="11" font-weight="bold" text-anchor="middle" fill="white">GPay</text>
-                </svg>
-              </div>
-            </div>
-
-         
-         
-           <a href="https://pay.cakto.com.br/igvxhja_511777"
-   class="btn btn-primary btn-lg btn-ripple"
-   target="_blank"
-   rel="noopener noreferrer">
-
-    Quero o ACE Pack
-
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="20"
-         height="20"
-         viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-    </svg>
-
-</a>
-
-            <p class="guarantee">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              Compra Segura!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-  <!-- Seção Depoimentos -->
-<section class="section" id="depoimentos">
-    <div class="container">
-        <div class="section-header">
-            <h2>O que nossos <span class="text-gradient">alunos</span> dizem</h2>
-            <p>Arraste para o lado para ver mais resultados.</p>
-        </div>
-
-        <div class="carousel-wrapper">
-
-            <!-- Botões -->
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1)">❮</button>
-            <button class="carousel-btn next" onclick="scrollCarousel(1)">❯</button>
-
-            <!-- Trilha do Carrossel -->
-            <div class="testimonials-carousel" id="carousel">
-
-                <div class="testimonial-print-card">
-                    <img src="assets/depoimento1.jpeg" alt="Resultado 1">
-                </div>
-
-                <div class="testimonial-print-card">
-                    <img src="assets/depoimento2.jpeg" alt="Resultado 2">
-                </div>
-
-                <div class="testimonial-print-card">
-                    <img src="assets/depoimento3.jpeg" alt="Resultado 3">
-                </div>
-
-                <div class="testimonial-print-card">
-                    <img src="assets/depoimento4.jpeg" alt="Resultado 4">
-                </div>
-
-              <!--  <div class="testimonial-print-card">
-                    <img src="assets/depoimento5.jpeg" alt="Resultado 5">
-                </div> -->
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
+  
   <!-- Mentoria Section -->
 <section class="section mentoria-bg" id="mentoria">
   <div>
@@ -2094,7 +1625,7 @@
 
   <div class="container section-content">
     <div class="section-header">
-      <h2>Mentoria <span class="text-gradient" style="background: linear-gradient(to right, #4f86c8, #6b42b6); -webkit-background-clip: text; background-clip: text;">Exclusiva</span></h2>
+      <h2>Mentoria <span class="text-gradient" style="background: linear-gradient(to right, #4f86c8, #6b42b6); -webkit-background-clip: text; background-clip: text;">exclusiva</span></h2>
       <p>Para quem quer resultados ainda mais rápidos com acompanhamento personalizado e suporte direto.</p>
     </div>
 
@@ -2156,7 +1687,7 @@
               </div>
             </div>
 <a href="https://pay.cakto.com.br/rwqfspi_716460"
-   class="btn btn-secondary btn-lg btn-ripple"
+   class="btn btn-primary btn-lg btn-ripple" 
    target="_blank"
    rel="noopener noreferrer">
 
@@ -2184,6 +1715,66 @@
 </section>
 
 
+ <!-- Sobre Nós Section -->
+  <section class="section" id="sobre">
+    <div class="section-bg">
+      <div class="glow-center" style="opacity: 0.3;"></div>
+    </div>
+
+    <div class="container section-content">
+      <div class="about-grid">
+        <!-- Lado da Imagem -->
+        <div class="about-image">
+          <img src="assets/murilo.JPG" alt="Quem somos nós - Ace Pack">
+        </div>
+
+        <!-- Lado do Texto -->
+        <div class="about-text">
+          <h2>A mente por trás do <span class="text-gradient">Ace Pack</span></h2>
+          
+         
+          <span class="about-name">Murilo Gonçalves</span> 
+          
+          <p>
+            Comecei a editar vídeos aos 9 anos, mas por falta de orientação e posicionamento eu não conseguia transmitir segurança, nem cobrar o que valia. Via outros avançando enquanto eu continuava perdido. Só quando ajustei minha mentalidade, organização e entrega passei a ser visto como profissional: vieram clientes melhores, projetos maiores e oportunidades que mudaram minha vida.
+          </p>
+          
+          <p>
+            Hoje, após atingir seis dígitos no audiovisual, criei meu curso para ensinar exatamente o que eu gostaria de ter aprendido quando comecei — de forma simples, prática e transformadora.
+          </p>
+
+         <a href="https://www.instagram.com/murilofilmsbr" target="_blank" rel="noopener noreferrer" class="btn-instagram-sobre">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+  Acompanhe no Instagram
+</a>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <h4>4+ Anos</h4>
+              <span>De Experiência</span>
+            </div>
+            <div class="stat-item">
+              <h4>1.7k+</h4>
+              <span>Alunos Satisfeitos</span>
+            </div>
+            <div class="stat-item">
+              <h4>24/7</h4>
+              <span>Suporte Ativo</span>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <span>Método Prático</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
   <section class="section" id="faq">
     <div class="section-bg">
@@ -2192,7 +1783,7 @@
 
     <div class="container section-content">
       <div class="section-header">
-        <h2>Perguntas <span class="text-gradient">Frequentes</span></h2>
+        <h2>Perguntas <span class="text-gradient">frequentes</span></h2>
       </div>
 
       <div class="faq-container">
@@ -2231,11 +1822,7 @@
               O acesso é imediato. Assim que a compra é confirmada, você recebe um e-mail com as instruções e pode acessar todo o conteúdo pela área de membros, no seu ritmo.
             </div>
           </div>
-        </div>
-
-        
-
-        
+        </div>       
        
       </div>
     </div>
@@ -2250,7 +1837,7 @@
     </div>
 
     <div class="container section-content final-cta">
-      <h2>Pronto Para <span class="text-gradient">Transformar</span> Seus Resultados?</h2>
+      <h2>Pronto para <span class="text-gradient">transformar</span> seus resultados?</h2>
       <p>Não encare isso como mais uma oferta. Encare como uma oportunidade real.</p>
 
       <a href="https://pay.cakto.com.br/igvxhja_511777"
@@ -2282,12 +1869,9 @@
   <!-- Footer -->
 <footer class="footer">
   <div class="footer-container">
-    <!-- Linha de Cima -->
     <div class="footer-top">
       COPYRIGHT © Murilo Filmmaker 
     </div>
-
-    <!-- Linha de Baixo (Apenas texto, sem links) -->
     <div class="footer-bottom">
       <div>
         Copyright © | Todos os direitos reservados
@@ -2299,7 +1883,7 @@
   </div>
 </footer>
 
-<!-- Botão WhatsApp Flutuante Extra Grande -->
+<!-- Botão WhatsApp Flutuante -->
  <a href="https://wa.me/5513955502898?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Poderia%20me%20dar%20suporte%2C%20por%20favor%3F" target="_blank" rel="noopener noreferrer" class="whatsapp-vazado" title="Suporte Ace Pack">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>

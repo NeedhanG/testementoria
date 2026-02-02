@@ -447,23 +447,6 @@
       flex-wrap: wrap; 
     }
 
-    .avatars { 
-      display: flex; 
-    }
-
-    .avatar-img {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      border: 2px solid black;
-      margin-left: -0.75rem;
-      object-fit: cover;
-    }
-
-    .avatar-img:first-child { 
-      margin-left: 0; 
-    }
-
     .social-text { 
       color: rgba(255, 255, 255, 0.7); 
       font-size: 0.875rem; 
@@ -539,130 +522,6 @@
     @media (min-width: 1024px) {
       .section-header h2 {
         font-size: 3rem;
-      }
-    }
-
-    /* About Section */
-    .about-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text {
-      order: 1;
-    }
-
-    .about-image {
-      order: 2;
-      position: relative;
-      max-width: 450px;
-      margin: 0 auto;
-    }
-
-    .about-image img {
-      border-radius: 1.5rem;
-      position: relative;
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .about-image::before {
-      content: "";
-      position: absolute;
-      inset: -10px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 1.8rem;
-      filter: blur(20px);
-      opacity: 0.4;
-      z-index: 1;
-    }
-
-    .about-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .about-text p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    .about-name {
-      display: block;
-      font-size: 1.25rem;
-      color: var(--secondary);
-      font-weight: 600;
-      margin-top: -1rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 1px;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .stat-item h4 {
-      font-size: 1.75rem;
-      color: var(--secondary);
-      font-weight: 700;
-    }
-
-    .stat-item span {
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .btn-instagram-sobre {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 15px;
-      color: white !important;
-      text-decoration: none;
-      background: rgba(0, 0, 0, 0.4); 
-      border: 1.5px solid #6b42b6; 
-      backdrop-filter: blur(10px);
-      margin: 1.5rem 0 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn-instagram-sobre svg {
-      width: 22px;
-      height: 22px;
-      fill: none !important;
-      stroke: white;
-      stroke-width: 2;
-    }
-
-    .btn-instagram-sobre:hover {
-      transform: translateY(-3px);
-      background: #6b42b6;
-      box-shadow: 0 0 20px rgba(107, 66, 182, 0.5);
-    }
-
-    @media (min-width: 1024px) {
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-      }
-      .about-text {
-        text-align: left;
-        order: unset;
-      }
-      .about-image {
-        order: unset;
       }
     }
 
@@ -797,101 +656,6 @@
       }
     }
 
-    /* Testimonials Carousel */
-    .carousel-wrapper {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    #carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-    }
-
-    #carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    #carousel > * {
-      scroll-snap-align: start;
-      flex-shrink: 0;
-    }
-
-    .testimonials-carousel {
-      display: flex;
-      gap: 1.5rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 20px 0;
-    }
-
-    .testimonials-carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    .testimonial-print-card {
-      flex: 0 0 100%;
-      scroll-snap-align: center;
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.4s;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .testimonial-print-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 45px;
-      height: 45px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: 0.3s;
-    }
-
-    .carousel-btn:hover {
-      background: var(--secondary);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .carousel-btn.prev { left: -10px; }
-    .carousel-btn.next { right: -10px; }
-
-    @media (min-width: 768px) {
-      .testimonial-print-card {
-        flex: 0 0 calc(50% - 1rem);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .testimonial-print-card {
-        flex: 0 0 calc(33.333% - 1rem);
-      }
-    }
 
     /* FAQ Section */
     .faq-container {
@@ -1134,34 +898,21 @@
       <div class="hero-grid">
         <div class="hero-text">
           <h1>
-            Mentoria <span class="text-gradient">exclusiva</span> em audiovisual
+            Mentoria <span class="text-gradient">exclusiva</span> em ACE Pack
           </h1>
 
           <p class="hero-description">
-            Acompanhamento personalizado, suporte 100% humanizado e um método que já transformou mais de 1.700 alunos. Aprenda do jeito certo, sem enrolação.
+            Acompanhamento personalizado, suporte 100% humanizado e um método que já transformou muitos alunos. Aprenda do jeito certo, sem enrolação.
           </p>
 
           <div class="hero-buttons">
-            <a href="#mentoria" class="btn btn-primary btn-lg btn-ripple">
+            <a href="#pricing" class="btn btn-primary btn-lg btn-ripple">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               Quero a Mentoria
             </a>
           </div>
 
-          <div class="hero-social">
-            <div class="avatars">
-              <img src="assets/aluno1.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno2.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno3.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno4.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno5.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno6.jpg" alt="Aluno" class="avatar-img">
-              <img src="assets/aluno7.jpg" alt="Aluno" class="avatar-img">
-            </div>
-            <div class="social-text">
-              <strong>+1.700</strong> alunos transformados
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
@@ -1194,7 +945,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
           </div>
           <h3>Até 10 Reuniões Online</h3>
-          <p>1 hora cada. Tire dúvidas, mostre projetos e receba feedbacks sinceros como no mercado profissional.</p>
+          <p>Até 10 reuniões de 1 hora cada. Tire dúvidas, mostre projetos e receba feedbacks sinceros como no mercado profissional.</p>
         </div>
 
         <div class="benefit-card">
@@ -1238,69 +989,8 @@
     </div>
   </section>
 
-  <!-- Sobre Section -->
-  <section class="section" id="sobre">
-    <div class="section-bg">
-      <div class="glow-center" style="opacity: 0.3;"></div>
-    </div>
-
-    <div class="container section-content">
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="assets/murilo.JPG" alt="Murilo Gonçalves - Mentor">
-        </div>
-
-        <div class="about-text">
-          <h2>A mente por trás da <span class="text-gradient">mentoria</span></h2>
-          
-          <span class="about-name">Murilo Gonçalves</span> 
-          
-          <p>
-            Comecei a editar vídeos aos 9 anos, mas por falta de orientação e posicionamento eu não conseguia transmitir segurança, nem cobrar o que valia. Via outros avançando enquanto eu continuava perdido.
-          </p>
-          
-          <p>
-            Só quando ajustei minha mentalidade, organização e entrega passei a ser visto como profissional: vieram clientes melhores, projetos maiores e oportunidades que mudaram minha vida.
-          </p>
-
-          <p>
-            Hoje, após atingir seis dígitos no audiovisual, criei minha mentoria para ensinar exatamente o que eu gostaria de ter aprendido quando comecei — de forma simples, prática e transformadora.
-          </p>
-
-          <a href="https://www.instagram.com/murilofilmsbr" target="_blank" rel="noopener noreferrer" class="btn-instagram-sobre">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            Acompanhe no Instagram
-          </a>
-
-          <div class="about-stats">
-            <div class="stat-item">
-              <h4>4+ Anos</h4>
-              <span>De Experiência</span>
-            </div>
-            <div class="stat-item">
-              <h4>1.7k+</h4>
-              <span>Alunos Felizes</span>
-            </div>
-            <div class="stat-item">
-              <h4>24/7</h4>
-              <span>Suporte Ativo</span>
-            </div>
-            <div class="stat-item">
-              <h4>100%</h4>
-              <span>Método Prático</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Pricing Section -->
-  <section class="section">
+  <section class="section" id="pricing">
     <div>
       <div class="section-bg"></div>
       <div class="glow-2" style="top: 25%; left: 0; bottom: auto; right: auto;"></div>
@@ -1453,46 +1143,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Final CTA Section -->
-  <section class="section">
-    <div class="section-bg">
-      <div class="hero-glow-1" style="top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: rgba(107, 66, 182, 0.3);"></div>
-      <div class="glow-2" style="bottom: 0; left: 25%;"></div>
-      <div class="glow-1" style="bottom: 0; right: 25%; left: auto;"></div>
-    </div>
-
-    <div class="container section-content" style="text-align: center;">
-      <h2>Pronto para <span class="text-gradient">transformar</span> sua carreira?</h2>
-      <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.7); max-width: 42rem; margin: 0 auto 2.5rem;">
-        Esta não é só mais uma oferta. É a oportunidade que você estava esperando para dar o próximo passo.
-      </p>
-
-      <a href="https://pay.cakto.com.br/rwqfspi_716460"
-         class="btn btn-primary btn-lg btn-ripple"
-         target="_blank"
-         rel="noopener noreferrer">
-        Garantir Minha Vaga Agora
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="20"
-             height="20"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-
-      <p class="guarantee" style="margin-top: 1.5rem; font-size: 0.875rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        Garantia de 7 dias. Risco zero.
-      </p>
     </div>
   </section>
 

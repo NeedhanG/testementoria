@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ace Pack - Transforme Seus Resultados</title>
-  <meta name="description" content="O metodo completo para acelerar seus resultados. Acesse agora o Ace Pack e a Mentoria exclusiva.">
+  <meta name="description" content="O metodo completo para acelerar seus resultados. Acesse agora o Ace Packa e tenha os melhores resultados.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -205,18 +205,6 @@
   margin-bottom: 0.5rem;
   }
 
-  .mentoria-price {
-  position: relative;
-  padding: 3rem 4rem;
-  border-radius: 1.5rem;
-  background: linear-gradient(135deg, rgba(107, 66, 182, 0.1), rgba(79, 134, 200, 0.1));
-  border: 1px solid rgba(107, 66, 182, 0.3);
-  backdrop-filter: blur(10px);
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  }
 
   /* Payment Methods */
   .price-installment {
@@ -266,6 +254,48 @@
     object-fit: contain;
     opacity: 0.8;
   }
+ /* Container do PIX - MESMO TAMANHO DOS OUTROS */
+.payment-icon.pix-box {
+  width: 45px; 
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* Permite que a imagem cresça para fora do limite */
+  position: relative;
+  z-index: 5; /* Garante que a logo fique por cima de tudo ao crescer */
+}
+
+/* Imagem do PIX - GRANDE NO DESKTOP E MOBILE */
+.payment-icon.pix-box .payment-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  padding: 0px !important;
+  display: block;
+  
+  /* ESCALA: 1.6 para ficar bem grande e visível */
+  transform: scale(1.6) !important; 
+  
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease;
+}
+
+/* Ajuste fino para Mobile (Telas pequenas) */
+@media (max-width: 768px) {
+  .payment-icon.pix-box {
+    /* Mantém o card no tamanho padrão do mobile se ele mudar */
+    width: 45px;
+    height: 38px;
+  }
+  
+  .payment-icon.pix-box .payment-img {
+    /* No mobile 1.5 costuma ser o limite ideal para não encostar nos outros ícones */
+    transform: scale(1.5) !important;
+  }
+}
 
 
     @keyframes pulse {
@@ -469,6 +499,15 @@
 .social-text { color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; }
 .social-text strong { color: white; }
 
+/* Video Wrapper */
+.video-wrapper {
+  position: relative; border-radius: 1rem; overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(107, 66, 182, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.video-glow { position: absolute; inset: -4px; background: linear-gradient(to right, var(--primary), var(--secondary)); border-radius: 1rem; filter: blur(20px); opacity: 0.3; }
+.video-container { position: relative; aspect-ratio: 16/9; background: rgba(0, 0, 0, 0.5); border-radius: 1rem; overflow: hidden; }
+.video-container iframe { width: 100%; height: 100%; border: none; }
 
 /* Desktop - Tablet (A partir de 768px) */
 @media (min-width: 768px) {
@@ -482,13 +521,13 @@
 @media (min-width: 1024px) {
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    text-align: left;
+    grid-template-columns: 1fr 1fr; /* Divide a tela em duas colunas iguais */
+    gap: 2rem;
     align-items: center;
+    text-align: left;
   }
   .hero-text h1 { font-size: 3.75rem; }
-  .hero-text h1, .hero-description, .hero-buttons, .hero-social {
+  .hero-text h1, .hero-description, .hero-video, .hero-buttons, .hero-social {
     order: unset;
   }
 }
@@ -654,16 +693,16 @@
 }
 
 /* Estilo do Subtítulo (Nome) */
-  .about-name {
-    display: block;
-    font-size: 1.25rem;
-    color: var(--secondary); /* Usa o azul/roxo do seu tema */
-    font-weight: 600;
-    margin-top: -1rem; /* Aproxima do título principal */
-    margin-bottom: 1.5rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+.about-name {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--secondary); /* Usa o azul/roxo do seu tema */
+  font-weight: 600;
+  margin-top: -1rem; /* Aproxima do título principal */
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: none; /* Removido o uppercase, agora respeita como você digitar no HTML */
+}
 
 .about-stats {
   display: grid;
@@ -699,6 +738,179 @@
   }
 }
 
+    /* Ace Pack Section */
+    .product-card {
+      max-width: 56rem;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    .product-border {
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 1.5rem;
+    }
+
+    .product-inner {
+      position: relative;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 1.5rem;
+      padding: 2rem;
+    }
+
+  .product-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  }
+
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stars svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: var(--primary);
+      color: var(--primary);
+    }
+
+    .stars span {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-left: 0.5rem;
+    }
+
+    .benefits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .check-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .check-icon svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      color: white;
+    }
+
+    .benefits-list span {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+  .price-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 3rem 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  }
+
+    .price-label {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-old {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.25rem;
+      text-decoration: line-through;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-current {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-current small {
+      font-size: 1.60rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .price-installment {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-box .btn {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.75rem;
+    }
+
+    .guarantee svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+  @media (max-width: 767px) {
+  .price-box {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  .price-current {
+    font-size: 3rem !important;
+  }
+  .mentoria-price {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  .mentoria-price .price-current {
+    font-size: 3rem !important;
+  }
+  }
+
+  @media (min-width: 768px) {
+  .product-inner {
+  padding: 3rem;
+  }
+  .product-grid {
+  justify-content: center;
+  }
+  .price-box {
+  text-align: center;
+  }
+  }
 
    /* Container do Carrossel */
 .carousel-wrapper {
@@ -792,141 +1004,6 @@
     flex: 0 0 calc(33.333% - 1rem); /* Desktop: 3 por vez */
   }
 }
-
-    /* Mentoria Section */
-    .mentoria-bg {
-      background: linear-gradient(to bottom, var(--background), #0a0a0a, var(--background));
-    }
-
-    .mentoria-features {
-      display: grid;
-      gap: 1rem;
-      max-width: 56rem;
-      margin: 0 auto 3rem;
-    }
-
-    .mentoria-feature {
-      padding: 1rem;
-      border-radius: 0.75rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-    }
-
-    .mentoria-feature-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 0.5rem;
-      background: rgba(79, 134, 200, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 0.75rem;
-    }
-
-    .mentoria-feature-icon svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: var(--secondary);
-    }
-
-    .mentoria-feature h3 {
-      font-size: 0.875rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    .mentoria-feature p {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .mentoria-card {
-      max-width: 42rem;
-      margin: 0 auto;
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(79, 134, 200, 0.3);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-    }
-
-  .mentoria-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  }
-
-    .mentoria-benefits h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .mentoria-benefits ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .mentoria-benefits li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .mentoria-check {
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background: rgba(79, 134, 200, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 0.125rem;
-    }
-
-    .mentoria-check svg {
-      width: 0.625rem;
-      height: 0.625rem;
-      color: var(--secondary);
-    }
-
-    .mentoria-benefits span {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.875rem;
-    }
-
-    .mentoria-price {
-      text-align: center;
-    }
-
-  .mentoria-price .price-current {
-  font-size: 3.5rem !important;
-  }
-
-    .mentoria-price .btn {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .mentoria-price .vagas {
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.75rem;
-    }
-
-    @media (min-width: 768px) {
-      .mentoria-features {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      .mentoria-grid {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-    }
 
     /* FAQ Section */
     .faq-container {
@@ -1430,109 +1507,6 @@
       height: 28px;
     }
   }
-  /* Ajustes para Celular (Mobile) */
-@media (max-width: 768px) {
-  /* 1. Ajusta o padding do card para o conteúdo ter mais espaço lateral */
-  .mentoria-price {
-    padding: 2rem 1.5rem !important;
-    width: 95% !important;
-    max-width: none !important;
-  }
-
-  /* 2. Reduz o tamanho do preço para não cortar nas bordas */
-  .price-current {
-    font-size: 2.8rem !important; /* Diminuído para caber na tela */
-    margin: 1rem 0 !important;
-  }
-
-  /* 3. Ajusta o botão para o texto ficar em uma linha só */
-  .btn-lg {
-    padding: 0.8rem 1rem !important;
-    font-size: 0.95rem !important; /* Texto levemente menor */
-    white-space: nowrap !important; /* Impede que o texto quebre em 2 linhas */
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-
-  /* Ajusta o ícone dentro do botão no mobile */
-  .btn svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-  
-  /* Reduz os ícones de pagamento para caberem melhor */
-  .payment-methods {
-    gap: 0.4rem !important;
-  }
-  
-  .payment-icon {
-    width: 38px !important;
-    height: 32px !important;
-  }
-}
-/* Ajuste para centavos pequenos alinhados por baixo */
-.price-current small {
-    font-size: 0.5em !important;    /* Tamanho fixo e visível */
-    vertical-align: baseline !important; /* Alinha na parte de baixo do número */
-    margin-left: 2px;
-    opacity: 1 !important;          /* Garante visibilidade total */
-    font-weight: 700;               /* Deixa um pouco mais grosso para destacar */
-    display: inline-block;          /* Garante que o alinhamento funcione bem */
-}
-
-  @media (max-width: 768px) {
-  /* Ajuste para deixar o texto bem compacto como na imagem de referência */
-  .hero-text h1,
-  .section-header h2,
-  .about-text h2,
-  .final-cta h2 {
-    line-height: 1.0 !important; /* Isso remove o espaço extra entre as linhas */
-    letter-spacing: -0.02em;     /* Opcional: deixa as letras um pouco mais juntas para um visual mais premium */
-  }
-}
-/* Ajuste de espaçamento para as seções e subtítulos no Desktop */
-@media (min-width: 768px) {
-  /* 1. Reduz o espaço geral entre uma seção e outra */
-  .section {
-    padding: 3rem 0 !important; /* Estava em 6rem, reduzimos pela metade */
-  }
-/* Ajuste do Título Principal (Hero) e Descrição no Desktop */
-@media (min-width: 768px) {
-  .hero-text {
-    gap: 0.8rem !important; /* Reduz o espaço entre o título e o parágrafo abaixo */
-  }
-
-  .hero-text h1 {
-    line-height: 1.0 !important; /* Deixa as linhas do título coladas */
-    margin-bottom: 0 !important;
-  }
-
-  .hero-description {
-    line-height: 1.4 !important; /* Melhora a leitura do texto menor */
-    margin-top: 0 !important;
-  }
-}
-  /* 2. Reduz o espaço entre o bloco de título e o conteúdo abaixo dele */
-  .section-header {
-    margin-bottom: 2.5rem !important; /* Estava em 4rem */
-  }
-
-  /* 3. Aproxima o título principal (H2) do subtítulo que vem logo abaixo */
-  .section-header h2 {
-    margin-bottom: 0.5rem !important; /* Estava em 1.5rem */
-    line-height: 1.1 !important;      /* Mantém o texto "coladinho" se quebrar linha */
-  }
-
-  /* 4. Ajuste específico para a seção de fechamento (Pronto para transformar...) */
-  .final-cta {
-    padding: 2rem 0 !important;
-  }
-  
-  .final-cta h2 {
-    margin-bottom: 0.5rem !important;
-  }
-}
   </style>
 </head>
 <body>
@@ -1548,7 +1522,9 @@
         <nav class="nav">
           <a href="#mentoria">Mentoria<
           <a href="#sobre">Sobre</a>
-          <a href="#depoimentos">Depoimentos</a>/a>
+          <a href="#ace-pack">Ace Pack</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#mentoria">Mentoria</a>
           <a href="#faq">FAQ</a>
         </nav>
 
@@ -1580,7 +1556,7 @@
           
 
           <h1>
-            Transforme seus <span class="text-gradient">resultados</span> com o Ace Pack
+            Transforme Seus <span class="text-gradient">Resultados</span> Com o Ace Pack
           </h1>
 
           <p class="hero-description">
@@ -1596,27 +1572,207 @@
            <!-- <a href="#sobre" class="btn btn-outline btn-lg">Saiba Mais</a> -->
           </div>
 
-          <div class="hero-social">
-            <div class="avatars">
-              <div class="avatar">G</div>
-              <div class="avatar">R</div>
-              <div class="avatar">A</div>
-              <div class="avatar">L</div>
-              <div class="avatar">S</div>
-            </div>
-            <div class="social-text">
-              <strong>+1.700</strong> alunos transformados
-            </div>
-          </div>
+        <div class="hero-social">
+  <div class="avatars">
+    <!-- Substitua o src pelo caminho das fotos reais (ex: assets/foto1.jpg) -->
+    <img src="assets/aluno1.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno2.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno3.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno4.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno5.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno6.jpg" alt="Aluno" class="avatar-img">
+    <img src="assets/aluno7.jpg" alt="Aluno" class="avatar-img">
+  </div>
+  <div class="social-text">
+    <strong>+1.700</strong> alunos transformados
+  </div>
+</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  
-  <!-- Mentoria Section -->
-<section class="section mentoria-bg" id="mentoria">
+  <!-- Story Cards Carousel Section -->
+  <section class="story-cards-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>O Que Você Vai <span class="text-gradient">Dominar</span></h2>
+        <p class="subtitle">Arraste para explorar todos os recursos exclusivos do Ace Pack</p>
+      </div>
+
+      <div class="story-carousel-container">
+        <button class="story-nav-btn prev" onclick="scrollStoryCarousel(-1)" aria-label="Anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+       <div class="story-carousel" id="storyCarousel">
+  <!-- Card 1 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story1.png" alt="Resultados">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Resultado Profissional</h3>
+        <p class="story-card-description">
+          Estrutura completa para sair do zero e editar com padrão profissional
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story2.png" alt="Adobe Premiere">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Mini Curso Premiere Pro</h3>
+        <p class="story-card-description">
+          Aulas práticas do zero ao essencial focadas em edição rápida e profissional
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story3.png" alt="After Effects">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Aulas de After Effects</h3>
+        <p class="story-card-description">
+          Efeitos, transições e motion graphics usados em vídeos que viralizam
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story4.jpeg" alt="Sound Effects">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">+1.500 Efeitos Sonoros</h3>
+        <p class="story-card-description">
+          Biblioteca organizada pronta para usar em qualquer tipo de vídeo
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story5.png" alt="Visual Elements">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Elementos Visuais Premium</h3>
+        <p class="story-card-description">
+          100+ elementos visuais, 50 backgrounds animados e overlays profissionais
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story6.JPG" alt="Workflow">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Presets & Workflow</h3>
+        <p class="story-card-description">
+          Presets, checklist pré-edição e briefing estratégico para agilizar projetos
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="story-card">
+    <div class="story-card-image">
+      <img src="assets/story7.png" alt="Lifetime Access">
+      <div class="story-card-overlay">
+        <h3 class="story-card-title">Acesso Vitalício</h3>
+        <p class="story-card-description">
+          Acesso para sempre + atualizações gratuitas sem custo adicional
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <button class="story-nav-btn next" onclick="scrollStoryCarousel(1)" aria-label="Próximo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+ <!-- Sobre Nós Section -->
+  <section class="section" id="sobre-nos">
+    <div class="section-bg">
+      <div class="glow-center" style="opacity: 0.3;"></div>
+    </div>
+
+    <div class="container section-content">
+      <div class="about-grid">
+        <!-- Lado da Imagem -->
+        <div class="about-image">
+          <img src="assets/murilo.JPG" alt="Quem somos nós - Ace Pack">
+        </div>
+
+        <!-- Lado do Texto -->
+        <div class="about-text">
+          <h2>A Mente por trás do <span class="text-gradient">Ace Pack</span></h2>
+          
+         
+          <span class="about-name">Murilo Gonçalves</span> 
+          
+          <p>
+            Comecei a editar vídeos aos 9 anos, mas por falta de orientação e posicionamento eu não conseguia transmitir segurança, nem cobrar o que valia. Via outros avançando enquanto eu continuava perdido. Só quando ajustei minha mentalidade, organização e entrega passei a ser visto como profissional: vieram clientes melhores, projetos maiores e oportunidades que mudaram minha vida.
+          </p>
+          
+          <p>
+            Hoje, após atingir seis dígitos no audiovisual, criei meu curso para ensinar exatamente o que eu gostaria de ter aprendido quando comecei — de forma simples, prática e transformadora.
+          </p>
+
+         <a href="https://www.instagram.com/murilofilmsbr" target="_blank" rel="noopener noreferrer" class="btn-instagram-sobre">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+  Acompanhe no Instagram
+</a>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <h4>4+ Anos</h4>
+              <span>De Experiência</span>
+            </div>
+            <div class="stat-item">
+              <h4>1.7k+</h4>
+              <span>Alunos Felizes</span>
+            </div>
+            <div class="stat-item">
+              <h4>24/7</h4>
+              <span>Suporte Ativo</span>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <span>Método Prático</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ace Pack Section -->
+<section class="section" id="ace-pack">
   <div>
     <div class="section-bg"></div>
     <div class="glow-2" style="top: 25%; left: 0; bottom: auto; right: auto;"></div>
@@ -1625,8 +1781,8 @@
 
   <div class="container section-content">
     <div class="section-header">
-      <h2>Mentoria <span class="text-gradient" style="background: linear-gradient(to right, #4f86c8, #6b42b6); -webkit-background-clip: text; background-clip: text;">exclusiva</span></h2>
-      <p>Para quem quer resultados ainda mais rápidos com acompanhamento personalizado e suporte direto.</p>
+      <h2>ACE Pack <span class="text-gradient">Completo</span></h2>
+      <p>O pacote definitivo para quem quer resultados reais e duradouros. Tudo o que você precisa em um só lugar.</p>
     </div>
 
     
@@ -1640,11 +1796,9 @@
             <p class="price-installment">ou 12x de R$34,53 no cartão</p>
             
             <div class="payment-methods">
-              <div class="payment-icon" title="PIX">
-                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M256 31.8501C246.331 31.8501 237.059 35.6923 230.224 42.5273L42.5273 230.224C28.3283 244.423 28.3283 267.577 42.5273 281.776L230.224 469.473C237.059 476.308 246.331 480.15 256 480.15C265.669 480.15 274.941 476.308 281.776 469.473L469.473 281.776C483.672 267.577 483.672 244.423 469.473 230.224L281.776 42.5273C274.941 35.6923 265.669 31.8501 256 31.8501ZM256 81.6521L430.348 256L256 430.348L81.6521 256L256 81.6521ZM177.514 177.514C173.045 177.514 168.577 179.22 165.166 182.631C158.344 189.453 158.344 200.504 165.166 207.326L213.841 256L165.166 304.674C158.344 311.496 158.344 322.547 165.166 329.369C171.988 336.191 183.039 336.191 189.861 329.369L256 263.23L322.139 329.369C328.961 336.191 340.012 336.191 346.834 329.369C353.656 322.547 353.656 311.496 346.834 304.674L298.159 256L346.834 207.326C353.656 200.504 353.656 189.453 346.834 182.631C340.012 179.22 335.544 177.514 331.074 177.514C326.605 177.514 322.137 179.22 318.726 182.631L256 248.77L193.274 182.631C189.863 179.22 185.395 177.514 180.926 177.514H177.514Z" fill="white"/>
-              </svg>
-            </div>
+ <div class="payment-icon pix-box" title="PIX">
+  <img src="assets/pix-logo.png" alt="PIX" class="payment-img">
+</div>
               <div class="payment-icon" title="Boleto">
                 <svg viewBox="0 0 48 32" fill="white">
                   <rect x="2" y="6" width="2" height="20"/>
@@ -1728,52 +1882,127 @@
           <img src="assets/murilo.JPG" alt="Quem somos nós - Ace Pack">
         </div>
 
-        <!-- Lado do Texto -->
-        <div class="about-text">
-          <h2>A mente por trás do <span class="text-gradient">Ace Pack</span></h2>
-          
-         
-          <span class="about-name">Murilo Gonçalves</span> 
-          
-          <p>
-            Comecei a editar vídeos aos 9 anos, mas por falta de orientação e posicionamento eu não conseguia transmitir segurança, nem cobrar o que valia. Via outros avançando enquanto eu continuava perdido. Só quando ajustei minha mentalidade, organização e entrega passei a ser visto como profissional: vieram clientes melhores, projetos maiores e oportunidades que mudaram minha vida.
-          </p>
-          
-          <p>
-            Hoje, após atingir seis dígitos no audiovisual, criei meu curso para ensinar exatamente o que eu gostaria de ter aprendido quando comecei — de forma simples, prática e transformadora.
-          </p>
+                <div class="testimonial-print-card">
+                    <img src="assets/depoimento2.jpeg" alt="Resultado 2">
+                </div>
 
-         <a href="https://www.instagram.com/murilofilmsbr" target="_blank" rel="noopener noreferrer" class="btn-instagram-sobre">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-  Acompanhe no Instagram
+                <div class="testimonial-print-card">
+                    <img src="assets/depoimento3.jpeg" alt="Resultado 3">
+                </div>
+
+                <div class="testimonial-print-card">
+                    <img src="assets/depoimento4.jpeg" alt="Resultado 4">
+                </div>
+
+              <!--  <div class="testimonial-print-card">
+                    <img src="assets/depoimento5.jpeg" alt="Resultado 5">
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Mentoria Section -->
+<section class="section mentoria-bg" id="mentoria">
+  <div>
+    <div class="section-bg"></div>
+    <div class="glow-2" style="top: 25%; left: 0; bottom: auto; right: auto;"></div>
+    <div class="glow-1" style="bottom: 25%; right: 0; top: auto; left: auto;"></div>
+  </div>
+
+  <div class="container section-content">
+    <div class="section-header">
+      <h2>Mentoria <span class="text-gradient" style="background: linear-gradient(to right, #4f86c8, #6b42b6); -webkit-background-clip: text; background-clip: text;">Exclusiva</span></h2>
+      <p>Para quem quer resultados ainda mais rápidos com acompanhamento personalizado e suporte direto.</p>
+    </div>
+
+    
+    </div>
+
+      <div class="mentoria-card">
+        <div class="mentoria-grid">
+          <div class="mentoria-price">
+            <p class="price-label">INVESTIMENTO</p>
+            <p class="price-current">R$297,<small>00</small></p>
+            <p class="price-installment">ou 12x de R$34,53 no cartão</p>
+            
+            <div class="payment-methods">
+              <div class="payment-icon" title="PIX">
+                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M256 31.8501C246.331 31.8501 237.059 35.6923 230.224 42.5273L42.5273 230.224C28.3283 244.423 28.3283 267.577 42.5273 281.776L230.224 469.473C237.059 476.308 246.331 480.15 256 480.15C265.669 480.15 274.941 476.308 281.776 469.473L469.473 281.776C483.672 267.577 483.672 244.423 469.473 230.224L281.776 42.5273C274.941 35.6923 265.669 31.8501 256 31.8501ZM256 81.6521L430.348 256L256 430.348L81.6521 256L256 81.6521ZM177.514 177.514C173.045 177.514 168.577 179.22 165.166 182.631C158.344 189.453 158.344 200.504 165.166 207.326L213.841 256L165.166 304.674C158.344 311.496 158.344 322.547 165.166 329.369C171.988 336.191 183.039 336.191 189.861 329.369L256 263.23L322.139 329.369C328.961 336.191 340.012 336.191 346.834 329.369C353.656 322.547 353.656 311.496 346.834 304.674L298.159 256L346.834 207.326C353.656 200.504 353.656 189.453 346.834 182.631C340.012 179.22 335.544 177.514 331.074 177.514C326.605 177.514 322.137 179.22 318.726 182.631L256 248.77L193.274 182.631C189.863 179.22 185.395 177.514 180.926 177.514H177.514Z" fill="white"/>
+              </svg>
+            </div>
+              <div class="payment-icon" title="Boleto">
+                <svg viewBox="0 0 48 32" fill="white">
+                  <rect x="2" y="6" width="2" height="20"/>
+                  <rect x="6" y="6" width="3" height="20"/>
+                  <rect x="11" y="6" width="2" height="20"/>
+                  <rect x="15" y="6" width="4" height="20"/>
+                  <rect x="21" y="6" width="2" height="20"/>
+                  <rect x="25" y="6" width="3" height="20"/>
+                  <rect x="30" y="6" width="2" height="20"/>
+                  <rect x="34" y="6" width="4" height="20"/>
+                  <rect x="40" y="6" width="2" height="20"/>
+                  <rect x="44" y="6" width="2" height="20"/>
+                </svg>
+              </div>
+              <div class="payment-icon" title="Visa">
+                <svg viewBox="0 0 48 32" fill="white">
+                  <text x="24" y="22" font-size="18" font-weight="bold" text-anchor="middle" fill="white">VISA</text>
+                </svg>
+              </div>
+              <div class="payment-icon" title="Mastercard">
+                <svg viewBox="0 0 48 32" fill="none">
+                  <circle cx="18" cy="16" r="10" fill="#EB001B" opacity="0.8"/>
+                  <circle cx="30" cy="16" r="10" fill="#F79E1B" opacity="0.8"/>
+                </svg>
+              </div>
+              <div class="payment-icon" title="American Express">
+                <svg viewBox="0 0 48 32" fill="white">
+                  <text x="24" y="20" font-size="14" font-weight="bold" text-anchor="middle" fill="white">AMEX</text>
+                </svg>
+              </div>
+              <div class="payment-icon" title="PayPal">
+                <svg viewBox="0 0 48 32" fill="white">
+                  <text x="24" y="20" font-size="12" font-weight="bold" text-anchor="middle" fill="white">PayPal</text>
+                </svg>
+              </div>
+              <div class="payment-icon" title="Google Pay">
+                <svg viewBox="0 0 48 32" fill="white">
+                  <text x="24" y="20" font-size="11" font-weight="bold" text-anchor="middle" fill="white">GPay</text>
+                </svg>
+              </div>
+            </div>
+<a href="https://pay.cakto.com.br/rwqfspi_716460"
+   class="btn btn-secondary btn-lg btn-ripple"
+   target="_blank"
+   rel="noopener noreferrer">
+
+    Quero a Mentoria
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="20"
+         height="20"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
 </a>
 
-          <div class="about-stats">
-            <div class="stat-item">
-              <h4>4+ Anos</h4>
-              <span>De Experiência</span>
-            </div>
-            <div class="stat-item">
-              <h4>1.7k+</h4>
-              <span>Alunos Satisfeitos</span>
-            </div>
-            <div class="stat-item">
-              <h4>24/7</h4>
-              <span>Suporte Ativo</span>
-            </div>
-            <div class="stat-item">
-              <h4>100%</h4>
-              <span>Método Prático</span>
-            </div>
-          </div>
+          <p class="vagas">VAGAS LIMITADAS</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- FAQ Section -->
   <section class="section" id="faq">
